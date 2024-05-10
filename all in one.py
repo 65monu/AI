@@ -91,7 +91,7 @@ Program- Write a Prolog program to implement GCD of two numbers. Source
 
 
 Code-
- gcd(0, A, A):- ! 
+ gcd(0, A, A):- !.
 gcd(A, 0, A):- !. 
 gcd(A, B, C):- B1
 is mod(A, B), 
@@ -115,7 +115,7 @@ where Num is raised to the power Pow to get Ans.
 
 
 Source Code- 
- power(X, 0, 1):- !. 
+ power(_, 0, 1):- !. 
 power(Num, Pow, Ans):- Ans
 is Num^Pow. 
 Output: 
@@ -160,9 +160,8 @@ Program- Write a Prolog program to implement memb(X, L): to check whether
 X is a member of L or not. Source Code- 
 
 
-
-memb(X, [X | Tail]). 
-memb(X, [Head | Tail]):- 
+memb(X, [X | _]). 
+memb(X, [_ | Tail]):- 
 memb(X, Tail). 
 Output: 
  ?- memb(b, [a, b, c]). true . 
@@ -397,7 +396,7 @@ removes the element on Nth position from a list L to generate a list R..
 
 
 Source Code- 
- delete_nth(1, [H|T], T):- !. 
+ delete_nth(1, [_|T], T):- !. 
 delete_nth(N, [H|T], [H|T1]):- 
 N1 is N - 1, delete_nth(N1, T, 
 T1). 
